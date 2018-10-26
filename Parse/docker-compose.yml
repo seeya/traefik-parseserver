@@ -10,7 +10,7 @@ services:
                 container_name: 'parse-server'
                 image: parseplatform/parse-server
                 environment:
-                        - PARSE_SERVER_DATABASE_URI=mongodb://mongo:27017/yourdatabase
+                        - PARSE_SERVER_DATABASE_URI=mongodb://mongo:27017/yourdatabasename
                         - PARSE_SERVER_APPLICATION_ID=APP_ID
                         - PARSE_SERVER_MASTER_KEY=MASTER_KEY
                 expose:
@@ -22,7 +22,7 @@ services:
                 labels:
                       - "traefik.docker.network=web"
                       - "traefik.enable=true"
-                      - "traefik.basic.frontend.rule=Host:subdomain.example.com"
+                      - "traefik.basic.frontend.rule=Host:parse.example.com"
                       - "traefik.basic.port=1337"
                       - "traefik.basic.protocol=http"
 
@@ -33,7 +33,7 @@ services:
                         - PORT=4040
                         - MOUNT_PATH=/
                         - PARSE_DASHBOARD_TRUST_PROXY=1
-                        - PARSE_DASHBOARD_SERVER_URL=https://subdomain.example/parse
+                        - PARSE_DASHBOARD_SERVER_URL=https://parse.example.com/parse
                         - PARSE_DASHBOARD_MASTER_KEY=MASTER_KEY
                         - PARSE_DASHBOARD_APP_ID=APP_ID
                         - PARSE_DASHBOARD_APP_NAME=APPNAME
