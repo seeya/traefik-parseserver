@@ -25,7 +25,8 @@ services:
                       - "traefik.basic.frontend.rule=Host:parse.example.com"
                       - "traefik.basic.port=1337"
                       - "traefik.basic.protocol=http"
-
+                restart: unless-stopped
+                
         parse-dashboard:
                 container_name: 'parse-dashboard'
                 image: parseplatform/parse-dashboard
@@ -51,7 +52,7 @@ services:
                       - "traefik.basic.frontend.rule=Host:dashboard.example.com"
                       - "traefik.basic.port=4040"
                       - "traefik.basic.protocol=http"
-
+                restart: unless-stopped
 networks:
         web:
                 external: true

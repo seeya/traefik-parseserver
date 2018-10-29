@@ -2,6 +2,7 @@ version: '2'
 
 services:
   traefik:
+    container_name: traefik
     image: traefik:1.5.4
     restart: always
     ports:
@@ -13,8 +14,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /opt/traefik/traefik.toml:/traefik.toml
       - /opt/traefik/acme.json:/acme.json
-    container_name: traefik
-
+    restart: unless-stopped
 networks:
   web:
     external: true
