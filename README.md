@@ -33,6 +33,11 @@ The `domain` in `Trafik/traefik.toml` should be the same as its other `subdomain
 ```
 
 Once configured, start up `traefik` first and then the `parse-server`.
+But remember to create the network `web`.
+
+```
+docker network create web
+```
 
 ```
 cd Traefik
